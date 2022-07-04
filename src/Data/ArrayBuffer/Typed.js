@@ -2,19 +2,19 @@
 
 // module Data.ArrayBuffer.Typed
 
-exports.buffer = function buffer (v) {
+function buffer (v) {
     return v.buffer;
-};
+}
 
-exports.byteOffset = function byteOffset (v) {
+function byteOffset (v) {
     return v.byteOffset;
-};
+}
 
-exports.byteLength = function byteLength (v) {
+function byteLength (v) {
     return v.byteLength;
-};
+}
 
-exports.lengthImpl = function lemgthImpl (v) {
+const lengthImpl = function lemgthImpl (v) {
     return v.length;
 };
 
@@ -36,133 +36,175 @@ function newArray (f) {
   };
 }
 
-exports.newUint8ClampedArray = newArray(Uint8ClampedArray);
-exports.newUint32Array = newArray(Uint32Array);
-exports.newUint16Array = newArray(Uint16Array);
-exports.newUint8Array = newArray(Uint8Array);
-exports.newInt32Array = newArray(Int32Array);
-exports.newInt16Array = newArray(Int16Array);
-exports.newInt8Array = newArray(Int8Array);
-exports.newFloat32Array = newArray(Float32Array);
-exports.newFloat64Array = newArray(Float64Array);
+const newUint8ClampedArray = newArray(Uint8ClampedArray);
+const newUint32Array = newArray(Uint32Array);
+const newUint16Array = newArray(Uint16Array);
+const newUint8Array = newArray(Uint8Array);
+const newInt32Array = newArray(Int32Array);
+const newInt16Array = newArray(Int16Array);
+const newInt8Array = newArray(Int8Array);
+const newFloat32Array = newArray(Float32Array);
+const newFloat64Array = newArray(Float64Array);
 
 
 // ------
 
-exports.everyImpl = function everyImpl (a,p) {
+function everyImpl (a,p) {
     return a.every(p);
-};
-exports.someImpl = function someImpl (a,p) {
+}
+function someImpl (a,p) {
     return a.some(p);
-};
+}
 
 
-exports.fillImpl = function fillImpl (x, s, e, a) {
+function fillImpl (x, s, e, a) {
     return a.fill(x,s,e);
-};
+}
 
 
-exports.mapImpl = function mapImpl (a,f) {
+function mapImpl (a,f) {
     return a.map(f);
-};
+}
 
-exports.forEachImpl = function forEachImpl (a,f) {
+function forEachImpl (a,f) {
     a.forEach(f);
-};
+}
 
-exports.filterImpl = function filterImpl (a,p) {
+function filterImpl (a,p) {
     return a.filter(p);
-};
+}
 
-exports.includesImpl = function includesImpl (a,x,mo) {
+function includesImpl (a,x,mo) {
     return mo === null ? a.includes(x) : a.includes(x,mo);
-};
+}
 
-exports.reduceImpl = function reduceImpl (a,f,i) {
+function reduceImpl (a,f,i) {
     return a.reduce(f,i);
-};
-exports.reduce1Impl = function reduce1Impl (a,f) {
+}
+function reduce1Impl (a,f) {
     return a.reduce(f);
-};
-exports.reduceRightImpl = function reduceRightImpl (a,f,i) {
+}
+function reduceRightImpl (a,f,i) {
     return a.reduceRight(f,i);
-};
-exports.reduceRight1Impl = function reduceRight1Impl (a,f) {
+}
+function reduceRight1Impl (a,f) {
     return a.reduceRight(f);
-};
+}
 
-exports.findImpl = function findImpl (a,f) {
+function findImpl (a,f) {
     return a.find(f);
-};
+}
 
-exports.findIndexImpl = function findIndexImpl (a,f) {
+function findIndexImpl (a,f) {
     var r = a.findIndex(f);
     return r === -1 ? null : r;
-};
-exports.indexOfImpl = function indexOfImpl (a,x,mo) {
+}
+function indexOfImpl (a,x,mo) {
     var r = mo === null ? a.indexOf(x) : a.indexOf(x,mo);
     return r === -1 ? null : r;
-};
-exports.lastIndexOfImpl = function lastIndexOfImpl (a,x,mo) {
+}
+function lastIndexOfImpl (a,x,mo) {
     var r = mo === null ? a.lastIndexOf(x) : a.lastIndexOf(x,mo);
     return r === -1 ? null : r;
-};
+}
 
 
 
-exports.copyWithinImpl = function copyWithinImpl (a,t,s,me) {
+function copyWithinImpl (a,t,s,me) {
     if (me === null) {
         a.copyWithin(t,s);
     } else {
         a.copyWithin(t,s,me);
     }
-};
+}
 
 
-exports.reverseImpl = function reverseImpl (a) {
+function reverseImpl (a) {
     a.reverse();
-};
+}
 
 
-exports.setImpl = function setImpl (a, off, b) {
+function setImpl (a, off, b) {
   a.set(b,off);
-};
+}
 
 
-exports.sliceImpl = function sliceImpl (a, s, e) {
+function sliceImpl (a, s, e) {
   return a.slice(s,e);
-};
+}
 
-exports.sortImpl = function sortImpl (a) {
+function sortImpl (a) {
     a.sort();
-};
+}
 
 
-exports.subArrayImpl = function subArrayImpl (a, s, e) {
+function subArrayImpl (a, s, e) {
     return a.subarray(s, e);
-};
+}
 
 
-exports.toStringImpl = function toStringImpl (a) {
+function toStringImpl (a) {
     return a.toString();
-};
+}
 
-exports.joinImpl = function joinImpl (a,s) {
+function joinImpl (a,s) {
     return a.join(s);
-};
+}
 
-exports.unsafeAtImpl = function(a, i) {
+function unsafeAtImpl(a, i) {
     return a[i];
 }
 
-exports.hasIndexImpl = function(a, i) {
+function hasIndexImpl(a, i) {
     return i in a;
 }
 
-exports.toArrayImpl = function(a) {
+function toArrayImpl(a) {
     var l = a.length;
     var ret = new Array(l);
     for (var i = 0; i < l; i++)
         ret[i] = a[i];
     return ret;
+}
+
+export {
+	  buffer
+	, byteOffset
+	, byteLength
+	, lengthImpl
+	, newUint8ClampedArray
+	, newUint32Array
+	, newUint16Array
+	, newUint8Array
+	, newInt32Array
+	, newInt16Array
+	, newInt8Array
+	, newFloat32Array
+	, newFloat64Array
+	, everyImpl
+	, someImpl
+	, fillImpl
+	, mapImpl
+	, forEachImpl
+	, filterImpl
+	, includesImpl
+	, reduceImpl
+	, reduce1Impl
+	, reduceRightImpl
+	, reduceRight1Impl
+	, findImpl
+	, findIndexImpl
+	, indexOfImpl
+	, lastIndexOfImpl
+	, copyWithinImpl
+	, reverseImpl
+	, setImpl
+	, sliceImpl
+	, sortImpl
+	, subArrayImpl
+	, toStringImpl
+	, joinImpl
+	, unsafeAtImpl
+	, hasIndexImpl
+	, toArrayImpl
 }
