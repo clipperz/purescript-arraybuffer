@@ -2,6 +2,22 @@
 
 Notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+Breaking changes:
+
+New features:
+
+Bugfixes:
+
+Other improvements:
+
+## [v13.0.0](https://github.com/purescript-contrib/purescript-arraybuffer/releases/tag/v13.0.0) - 2022-04-27
+
+Breaking Changes:
+- Migrate FFI to ES modules (#41 by @JordanMartinez)
+- Replaced polymorphic proxies with monomorphic `Proxy` (#41 by @JordanMartinez)
+
 ## v12.0.0
 
 Delete the `TypedArray` polyfill which was preventing this

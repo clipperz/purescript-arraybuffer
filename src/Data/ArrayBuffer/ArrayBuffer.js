@@ -1,15 +1,13 @@
-"use strict";
+// module Data.ArrayBuffer.ArrayBuffer
 
-const emptyImpl = function empty (s) {
+export function emptyImpl(s) {
     return new ArrayBuffer(s);
 };
 
-function byteLength (a) {
+export function byteLength(a) {
     return a.byteLength;
 }
 
-function sliceImpl (a, s, e) {
+export function sliceImpl(a, s, e) {
     return a.slice(s, e);
 }
-
-export {byteLength, emptyImpl, sliceImpl}
